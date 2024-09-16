@@ -2,9 +2,11 @@ package User_registration;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.regex.Pattern;
+
 import org.junit.Test;
 
-public class TestFile {
+public class TestFile   {
       @Test
 	 public void test1() {
     	  TestMethods t =new TestMethods();
@@ -43,5 +45,78 @@ public class TestFile {
       	assertTrue(s);
 
 	 }
+      
+      // using functional interfaces
+       @FunctionalInterface
+      interface i1{
+ 	public void Testfname1(String fname) ;
+       }
+ 	
+      @FunctionalInterface
+      interface i2{ 
+    	  public void Testlname(String lname);
+      
+      }
+  		//return Pattern.matches("[A-Z]{1}[a-z]{2,}", lname);
+
+      @FunctionalInterface
+      interface i3{
+    	  public  void Testmail(String mail) ;
+      }
+      
+   		
+  		@FunctionalInterface
+  	     interface i4{
+  			public  void Testnum(String num);
+  		}
+ 
+  		 @FunctionalInterface
+  	     interface i5{
+  			public void Testpass(String pass);
+  		 }
+    
+  		 
+   		     
+  		   
+  		 
+  
+  		 
+  		 public static void main(String[] args) {
+  	  		 //using lambda  expressions
+
+  			 i1 m1=(fname)  ->   {
+    			   boolean b= Pattern.matches("[A-Z]{1}[a-z]{2,}", fname);
+            System.out.println(b); 
+            };
+            
+              i2 m2=(lname)  ->   {   boolean b= Pattern.matches("[A-Z]{1}[a-z]{2,}", lname);
+              System.out.println(b); 
+              };
+
+              
+              i3 m3=(mail)   ->    {  boolean b= Pattern.matches("[a-zA-Z0-9+%-]+.[a-z]*@[a-z]+.[a-z]+.[a-z]*", mail);
+              System.out.println(b); 
+
+              };
+              i4 m4=(num)    ->   {   boolean b= Pattern.matches("\\d{10}+", num);
+              System.out.println(b); 
+
+              };
+              i5 m5=(pass)   ->   {
+            	  boolean b= Pattern.matches("^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d!@#$%^&*()]{8,}$", pass);
+                  System.out.println(b); 
+
+              };
+
+		       m1.Testfname1("Shaik");
+               m2.Testlname("Sha"); 
+               m3.Testmail("shaiknaveed@gmail.com");
+               m4.Testnum("6303833290");
+               m5.Testpass("Shaik@123");		
+  	
+	  			
+  		 }
+  		 }
+        
+      
        
-}
