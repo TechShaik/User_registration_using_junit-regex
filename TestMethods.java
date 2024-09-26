@@ -3,7 +3,7 @@ package User_registration;
 import java.util.regex.Pattern;
 
 public class TestMethods {
-
+      
 	public boolean Testfname(String fname) {
 		return Pattern.matches("[A-Z]{1}[a-z]{2,}", fname);
 	}
@@ -24,5 +24,7 @@ public class TestMethods {
 		
 	return Pattern.matches("^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d!@#$%^&*()]{8,}$", pass);
 
-     }
+   
+    
+   }
 }
